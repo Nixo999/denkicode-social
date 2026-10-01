@@ -7,7 +7,7 @@ c = [{"id": "futuro", "quando": "2026-10-04T21:00"},
      {"id": "tardi", "quando": "2026-10-04T10:00"},
      {"id": "gia", "quando": "2026-10-04T20:00", "fatto": "1"},
      {"id": "scartato", "quando": "2026-10-04T20:00", "saltato": "x"}]
-pub, salta = dovuti(c, datetime(2026, 10, 4, 21, 0, tzinfo=ROMA))
+pub, salta = dovuti(c, datetime(2026, 10, 4, 20, 59, tzinfo=ROMA))
 assert [i["id"] for i in pub] == ["ora"], pub
 assert [i["id"] for i in salta] == ["tardi"], salta
 # passaggio all'ora solare, 25/10/2026: le 21:00 di Roma restano le 21:00 di Roma
