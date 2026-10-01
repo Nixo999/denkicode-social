@@ -1,0 +1,18 @@
+name: rinnova-token
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+jobs:
+  rinnova:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # il token vale 60 giorni; rinnovato ogni lunedi' non scade mai. GH_PAT serve per riscrivere il secret.
+      - run: |
+          NUOVO=$(python3 pubblica.py rinnova)
+          echo "::add-mask::$NUOVO"
+          gh secret set IG_TOKEN --body "$NUOVO"
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
