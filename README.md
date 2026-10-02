@@ -19,13 +19,19 @@ Commit e push: il resto lo fa il cron. Controllo prima di pushare: `python3 pubb
 
 ## Come si comporta
 
-- Gira ogni 20 minuti. GitHub ritarda i cron di 5-30 minuti: gli orari sono a ±30.
+- Il cron di GitHub non è puntuale: chiesto ogni 20 minuti, l'1-2/10/2026 è girato 5 volte in 21 ore.
+  Per questo ogni giro che parte **aspetta sul posto** il prossimo post, se cade entro 5 ore e mezza, e lo
+  pubblica al minuto. Se nessun giro parte in quella finestra il post esce in ritardo, fino a 6 ore.
 - Un post fuori orario di più di 6 ore viene **saltato** (`saltato` in `coda.json`), non pubblicato.
 - Se un post fallisce riprova al giro dopo, per 6 ore. Il workflow rosso manda una mail a Nicola.
 - Si ferma se il token non è di `@denkicode`.
 - Il log di `fatto` in `coda.json` è la memoria: un post con `fatto` non esce due volte.
 
 ## Setup, una volta
+
+App Meta di tipo Business, caso d'uso «Manage messaging & content on Instagram», «API setup with
+Instagram business login»: niente Pagina Facebook, niente App Review per il proprio account. Il token deve
+avere `instagram_business_basic` e `instagram_business_content_publish`.
 
 Secret del repo: `IG_TOKEN` (token lungo dell'app Meta) e `GH_PAT` (token fine-grained di Nicola con
 *Secrets: read/write* su questo solo repo, serve a `rinnova.yml` per riscrivere `IG_TOKEN`
