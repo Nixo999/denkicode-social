@@ -1,0 +1,12 @@
+name: verifica-token
+on:
+  workflow_dispatch:
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # sola lettura: dice di chi e' il token, non pubblica niente
+      - run: python3 pubblica.py verifica
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}

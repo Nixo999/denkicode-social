@@ -7,6 +7,7 @@ Gira ogni 20 minuti da GitHub Actions (pubblica.yml). Solo libreria standard.
   pubblica.py --prova    elenca cosa pubblicherebbe, non chiama l'API
   pubblica.py aspetta    dorme fino al prossimo post, se cade entro 5 ore e mezza
   pubblica.py rinnova    rinnova il token lungo e stampa quello nuovo
+  pubblica.py verifica   dice di chi e' il token e che tipo di account e', senza pubblicare niente
 
 Variabili: IG_TOKEN (token lungo, solo nei secret di GitHub, mai nel repo),
 IG_USERNAME (default denkicode: se il token e' di un altro profilo si ferma).
@@ -161,6 +162,9 @@ def main(prova):
 if __name__ == "__main__":
     if sys.argv[1:] == ["rinnova"]:
         rinnova()
+    elif sys.argv[1:] == ["verifica"]:
+        me = chiama("me", fields="user_id,username,account_type")
+        print(f"token valido: @{me['username']}, account {me.get('account_type', '?')}, id {me['user_id']}")
     elif sys.argv[1:] == ["aspetta"]:
         s = attesa(json.loads(CODA.read_text()), datetime.now(ROMA))
         print(f"aspetto {s / 60:.0f} minuti")
