@@ -1,7 +1,8 @@
 name: pubblica
 on:
   schedule:
-    - cron: "*/20 * * * *"
+    # minuti dispari: allo scoccare dell'ora GitHub scarta piu' giri. La puntualita' la da' `aspetta`.
+    - cron: "7,27,47 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -11,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: python3 pubblica.py aspetta
+      # durante l'attesa la coda puo' essere cambiata
+      - run: git pull -q
       - run: python3 pubblica.py
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}

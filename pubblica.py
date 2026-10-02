@@ -5,6 +5,7 @@ Gira ogni 20 minuti da GitHub Actions (pubblica.yml). Solo libreria standard.
 
   pubblica.py            pubblica quello che e' dovuto
   pubblica.py --prova    elenca cosa pubblicherebbe, non chiama l'API
+  pubblica.py aspetta    dorme fino al prossimo post, se cade entro 5 ore e mezza
   pubblica.py rinnova    rinnova il token lungo e stampa quello nuovo
 
 Variabili: IG_TOKEN (token lungo, solo nei secret di GitHub, mai nel repo),
@@ -27,6 +28,9 @@ CODA = QUI / "coda.json"
 API = "https://graph.instagram.com/v23.0"
 ROMA = ZoneInfo("Europe/Rome")  # il cron di Actions e' in UTC: l'ora la decide questo, non il cron
 RITARDO_MAX = timedelta(hours=6)  # oltre, il post e' fuori orario: si salta, non si pubblica a caso
+# Il cron di GitHub non e' puntuale: l'1-2/10/2026, chiesto ogni 20 minuti, e' girato 5 volte in
+# 21 ore. Quindi ogni giro che parte aspetta il prossimo post sul posto, e lo pubblica al minuto.
+ATTESA_MAX = timedelta(hours=5, minutes=30)  # un job di Actions muore a 6 ore
 MEDIA = f"https://raw.githubusercontent.com/{os.environ.get('GITHUB_REPOSITORY', 'Nixo999/denkicode-social')}/main/media/"
 TIPI = {"post", "carosello", "storia", "reel"}
 
@@ -43,12 +47,23 @@ def dovuti(coda, ora):
     return pub, salta
 
 
+def attesa(coda, ora):
+    """Secondi da dormire fino al prossimo post: 0 se ce n'e' uno dovuto adesso o se e' oltre ATTESA_MAX."""
+    if dovuti(coda, ora)[0]:
+        return 0
+    futuri = [q - ora for it in coda if "fatto" not in it and "saltato" not in it
+              and (q := datetime.fromisoformat(it["quando"]).replace(tzinfo=ROMA)) > ora]
+    return min(futuri).total_seconds() if futuri and min(futuri) <= ATTESA_MAX else 0
+
+
 def controlla(it):
     assert it["tipo"] in TIPI, f"{it['id']}: tipo {it['tipo']!r} sconosciuto"
     assert it["file"], f"{it['id']}: nessun file"
     for f in it["file"]:
         assert (QUI / "media" / f).is_file(), f"{it['id']}: media/{f} non esiste"
         assert f.lower().endswith((".jpg", ".jpeg", ".mp4")), f"{it['id']}: {f} non e' JPEG o MP4"
+        # un video senza media_type l'API lo rifiuta: i video escono solo come reel o storia
+        assert it["tipo"] in ("reel", "storia") or not f.lower().endswith(".mp4"), f"{it['id']}: un video va come reel o storia"
 
 
 def chiama(percorso, post=False, base=API, **p):
@@ -91,7 +106,7 @@ def pubblica(uid, it):
     elif it["tipo"] == "storia":
         cid = crea(media_type="STORIES", **sorgente(f[0]))
     elif it["tipo"] == "reel":
-        cid = crea(media_type="REELS", caption=cap, **sorgente(f[0]))
+        cid = crea(media_type="REELS", share_to_feed="true", caption=cap, **sorgente(f[0]))
     else:
         cid = crea(caption=cap, **sorgente(f[0]))
     aspetta(cid)
@@ -137,7 +152,7 @@ def main(prova):
             it["fatto"] = f"{pubblica(me['user_id'], it)} {ora:%Y-%m-%dT%H:%M}"
             salva(coda)  # subito: se il commit finale va storto, il prossimo giro non ripubblica
             print(f"PUBBLICATO {it['id']}")
-        except RuntimeError as e:
+        except (RuntimeError, OSError) as e:  # OSError: timeout e rete giu', che non sono HTTPError
             errori += 1
             print(f"ERRORE {it['id']}: {e}")  # resta in coda: riprova al giro dopo, fino a RITARDO_MAX
     return 1 if errori else 0
@@ -146,5 +161,9 @@ def main(prova):
 if __name__ == "__main__":
     if sys.argv[1:] == ["rinnova"]:
         rinnova()
+    elif sys.argv[1:] == ["aspetta"]:
+        s = attesa(json.loads(CODA.read_text()), datetime.now(ROMA))
+        print(f"aspetto {s / 60:.0f} minuti")
+        time.sleep(s)
     else:
         sys.exit(main("--prova" in sys.argv))

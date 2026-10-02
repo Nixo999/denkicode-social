@@ -1,6 +1,6 @@
 """python3 test_pubblica.py: la logica degli orari, l'unico pezzo che puo' pubblicare a sproposito."""
 from datetime import datetime
-from pubblica import ROMA, dovuti
+from pubblica import ROMA, attesa, dovuti
 
 c = [{"id": "futuro", "quando": "2026-10-04T21:00"},
      {"id": "ora", "quando": "2026-10-04T20:50"},
@@ -13,4 +13,10 @@ assert [i["id"] for i in salta] == ["tardi"], salta
 # passaggio all'ora solare, 25/10/2026: le 21:00 di Roma restano le 21:00 di Roma
 assert not dovuti([{"id": "a", "quando": "2026-10-25T21:00"}], datetime(2026, 10, 25, 20, 59, tzinfo=ROMA))[0]
 assert dovuti([{"id": "a", "quando": "2026-10-25T21:00"}], datetime(2026, 10, 25, 21, 1, tzinfo=ROMA))[0]
+# l'attesa: dorme fino al prossimo post solo se e' vicino e se niente e' dovuto adesso
+f = [{"id": "a", "quando": "2026-10-04T21:00"}]
+assert attesa(f, datetime(2026, 10, 4, 20, 0, tzinfo=ROMA)) == 3600
+assert attesa(f, datetime(2026, 10, 4, 15, 0, tzinfo=ROMA)) == 0      # sei ore: tocca al giro dopo
+assert attesa(c, datetime(2026, 10, 4, 20, 59, tzinfo=ROMA)) == 0     # "ora" e' dovuto: si pubblica subito
+assert attesa([], datetime(2026, 10, 4, 20, 0, tzinfo=ROMA)) == 0
 print("ok")
