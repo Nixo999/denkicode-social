@@ -9,6 +9,59 @@
     "fatto": "17930365692162515 2026-10-03T00:12"
   },
   {
+    "id": "2026-10-05-storia-09-16-02",
+    "tipo": "storia",
+    "quando": "2026-10-05T08:00",
+    "file": [
+      "storia-2026-09-16-02.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-06-carosello-telefono-in-una-mano",
+    "tipo": "carosello",
+    "quando": "2026-10-06T13:30",
+    "file": [
+      "carosello-2026-10-06-telefono-in-una-mano-1.jpg",
+      "carosello-2026-10-06-telefono-in-una-mano-2.jpg",
+      "carosello-2026-10-06-telefono-in-una-mano-3.jpg",
+      "carosello-2026-10-06-telefono-in-una-mano-4.jpg",
+      "carosello-2026-10-06-telefono-in-una-mano-5.jpg"
+    ],
+    "didascalia": "Chi cerca un'estetista lo fa dal telefono, spesso con l'altra mano occupata. Se il sito si legge solo ingrandendo, chiude e passa al nome dopo.\n\nSe vuoi vedere come verrebbe il sito del tuo centro, scrivici BOZZA in DM. La bozza è gratis: se non ti piace, finisce lì.\n\n#estetista #centroestetico #sitoweb"
+  },
+  {
+    "id": "2026-10-07-sarto-1-f1",
+    "tipo": "storia",
+    "quando": "2026-10-07T08:00",
+    "file": [
+      "storia-2026-10-07-sarto-1-f1.jpg"
+    ],
+    "sondaggio": {
+      "domanda": "Le ore delle squadre, da voi, come arrivano in ufficio?",
+      "opzioni": [
+        "Gruppo WhatsApp",
+        "Su un foglio"
+      ],
+      "file": "storia-2026-10-07-sarto-1-f1-sondaggio.jpg"
+    }
+  },
+  {
+    "id": "2026-10-07-sarto-1-f2",
+    "tipo": "storia",
+    "quando": "2026-10-07T08:01",
+    "file": [
+      "storia-2026-10-07-sarto-1-f2.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-07-sarto-1-f3",
+    "tipo": "storia",
+    "quando": "2026-10-07T08:02",
+    "file": [
+      "storia-2026-10-07-sarto-1-f3.jpg"
+    ]
+  },
+  {
     "id": "2026-10-08-carosello-ore-whatsapp",
     "tipo": "carosello",
     "quando": "2026-10-08T13:30",
@@ -21,5 +74,125 @@
       "carosello-2026-10-08-ore-whatsapp-6.jpg"
     ],
     "didascalia": "Il venerdì pomeriggio, in tante imprese con squadre fuori, qualcuno scorre il gruppo WhatsApp e ricopia le ore su Excel.\n\nLe ore sono già state scritte una volta, in cantiere. In ufficio si riscrivono, e ogni passaggio è un posto dove una mezz'ora sparisce.\n\nNoi scriviamo programmi per imprese con squadre e cantieri, e si parte da come lavorate voi.\n\nScrivici SARTO in DM.\n\n#cantieri #impresa #gestionale"
+  },
+  {
+    "id": "2026-10-09-relatable-1-f1",
+    "tipo": "storia",
+    "quando": "2026-10-09T08:00",
+    "file": [
+      "storia-2026-10-09-relatable-1-f1.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-09-relatable-1-f2",
+    "tipo": "storia",
+    "quando": "2026-10-09T08:01",
+    "file": [
+      "storia-2026-10-09-relatable-1-f2.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-09-relatable-1-f3",
+    "tipo": "storia",
+    "quando": "2026-10-09T08:02",
+    "file": [
+      "storia-2026-10-09-relatable-1-f3.jpg"
+    ],
+    "sondaggio": {
+      "domanda": "Quante versioni di \"definitivo\" avete in cartella?",
+      "opzioni": [
+        "Una, giuro",
+        "Ho smesso di contarle"
+      ],
+      "file": "storia-2026-10-09-relatable-1-f3-sondaggio.jpg"
+    }
+  },
+  {
+    "id": "2026-10-10-storia-09-16-03",
+    "tipo": "storia",
+    "quando": "2026-10-10T08:00",
+    "file": [
+      "storia-2026-09-16-03.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-12-storia-09-16-05",
+    "tipo": "storia",
+    "quando": "2026-10-12T08:00",
+    "file": [
+      "storia-2026-09-16-05.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-14-sarto-2-f1",
+    "tipo": "storia",
+    "quando": "2026-10-14T08:00",
+    "file": [
+      "storia-2026-10-14-sarto-2-f1.jpg"
+    ],
+    "sondaggio": {
+      "domanda": "Chi va dove domani, da voi, dove sta scritto?",
+      "opzioni": [
+        "Sulla lavagna",
+        "Su Excel"
+      ],
+      "file": "storia-2026-10-14-sarto-2-f1-sondaggio.jpg"
+    }
+  },
+  {
+    "id": "2026-10-14-sarto-2-f2",
+    "tipo": "storia",
+    "quando": "2026-10-14T08:01",
+    "file": [
+      "storia-2026-10-14-sarto-2-f2.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-14-sarto-2-f3",
+    "tipo": "storia",
+    "quando": "2026-10-14T08:02",
+    "file": [
+      "storia-2026-10-14-sarto-2-f3.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-16-relatable-2-f1",
+    "tipo": "storia",
+    "quando": "2026-10-16T08:00",
+    "file": [
+      "storia-2026-10-16-relatable-2-f1.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-16-relatable-2-f2",
+    "tipo": "storia",
+    "quando": "2026-10-16T08:01",
+    "file": [
+      "storia-2026-10-16-relatable-2-f2.jpg"
+    ]
+  },
+  {
+    "id": "2026-10-16-relatable-2-f3",
+    "tipo": "storia",
+    "quando": "2026-10-16T08:02",
+    "file": [
+      "storia-2026-10-16-relatable-2-f3.jpg"
+    ],
+    "sondaggio": {
+      "domanda": "Le ore, da voi, quando si segnano?",
+      "opzioni": [
+        "Il giorno stesso",
+        "Il venerdì, a memoria"
+      ],
+      "file": "storia-2026-10-16-relatable-2-f3-sondaggio.jpg"
+    }
+  },
+  {
+    "id": "2026-10-17-storia-cose-che-succedono-1",
+    "tipo": "storia",
+    "quando": "2026-10-17T08:00",
+    "file": [
+      "storia-2026-10-05-cose-che-succedono-1.jpg"
+    ]
   }
 ]
