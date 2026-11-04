@@ -222,5 +222,91 @@
       "storia-2026-10-05-cose-che-succedono-1.jpg"
     ],
     "fatto": "18091685858234722 2026-10-17T08:00"
+  },
+  {
+    "id": "2026-11-05-carosello-indirizzo",
+    "tipo": "carosello",
+    "quando": "2026-11-05T13:30",
+    "file": [
+      "carosello-2026-11-05-indirizzo-1.jpg",
+      "carosello-2026-11-05-indirizzo-2.jpg",
+      "carosello-2026-11-05-indirizzo-3.jpg",
+      "carosello-2026-11-05-indirizzo-4.jpg",
+      "carosello-2026-11-05-indirizzo-5.jpg",
+      "carosello-2026-11-05-indirizzo-6.jpg"
+    ],
+    "didascalia": "I clienti vogliono informazioni veloci quando aprono un sito da telefono.\nIndirizzo, telefono, orari e servizi in vista: meno domande in DM.\nScrivici BOZZA in DM.\n#sitivetrina #estetista #tatuatori"
+  },
+  {
+    "id": "2026-11-06-relatable-3-f1",
+    "tipo": "storia",
+    "quando": "2026-11-06T08:00",
+    "file": [
+      "storia-2026-11-06-relatable-3-f1.jpg"
+    ]
+  },
+  {
+    "id": "2026-11-06-relatable-3-f2",
+    "tipo": "storia",
+    "quando": "2026-11-06T08:00",
+    "file": [
+      "storia-2026-11-06-relatable-3-f2.jpg"
+    ]
+  },
+  {
+    "id": "2026-11-06-relatable-3-f3",
+    "tipo": "storia",
+    "quando": "2026-11-06T08:00",
+    "file": [
+      "storia-2026-11-06-relatable-3-f3.jpg"
+    ]
+  },
+  {
+    "id": "2026-11-07-post-simpatico",
+    "tipo": "post",
+    "quando": "2026-11-07T09:30",
+    "file": [
+      "post-2026-11-07-simpatico.jpg"
+    ],
+    "didascalia": "Certe risposte ti lasciano davanti allo schermo a chiederti cosa fare.\nCapire i clienti a volte richiede molta fantasia.\nScrivici BOZZA in DM.\n#piccoleattivita #educatoricinofili #fotografi"
+  },
+  {
+    "id": "2026-11-08-reel-albybike",
+    "tipo": "reel",
+    "quando": "2026-11-08T21:00",
+    "file": [
+      "reel-2026-11-08-albybike.mp4"
+    ],
+    "didascalia": "Abbiamo messo online albybike.com per il negozio di bici di Cesano Maderno.\nSulla prima pagina c'è una bici in evidenza con il prezzo. Ci sono anche la partnership con Pardus e lo spazio per le riparazioni. Potete navigare il sito all'indirizzo albybike.com e trovare il negozio su @albybike2010.\nScrivici BOZZA in DM.\n#bici #negoziolocale #cesanomaderno"
+  },
+  {
+    "id": "2026-11-09-storia-sondaggio",
+    "tipo": "storia",
+    "quando": "2026-11-09T08:00",
+    "file": [
+      "storia-2026-11-09-sondaggio.jpg"
+    ],
+    "sondaggio": {
+      "domanda": "I tuoi clienti ti scrivono più su WhatsApp o su Instagram?",
+      "opzioni": [
+        "WhatsApp",
+        "Instagram"
+      ],
+      "file": "storia-2026-11-09-sondaggio.jpg"
+    }
+  },
+  {
+    "id": "2026-11-10-carosello-foto",
+    "tipo": "carosello",
+    "quando": "2026-11-10T13:30",
+    "file": [
+      "carosello-2026-11-10-foto-1.jpg",
+      "carosello-2026-11-10-foto-2.jpg",
+      "carosello-2026-11-10-foto-3.jpg",
+      "carosello-2026-11-10-foto-4.jpg",
+      "carosello-2026-11-10-foto-5.jpg",
+      "carosello-2026-11-10-foto-6.jpg"
+    ],
+    "didascalia": "Le foto scattate bene migliorano subito l'immagine del tuo locale online.\nPochi accorgimenti bastano per mostrare la vera qualità dei tuoi lavori. Prova sui prossimi scatti.\nScrivici BOZZA in DM.\n#parrucchieri #fotografi #sitivetrina"
   }
 ]
